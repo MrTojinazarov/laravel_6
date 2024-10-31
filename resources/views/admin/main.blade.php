@@ -180,17 +180,19 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{route('universities.index')}}" class="nav-link">
+            <a href="{{route('universities.index')}}">
               <i class="nav-icon fas fa-th"></i>
-              <p>
-                Universities
-              </p>
+              Universities
             </a>
           </li>
-        </ul>
+          <li class="nav-item">
+            <a href="{{route('logout')}}">
+              <i class="nav-icon fas fa-th"></i>
+              Logout
+            </a>
+          </li>
+        </ul>              
       </nav>
       <!-- /.sidebar-menu -->
     </div>
