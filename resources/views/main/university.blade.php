@@ -6,16 +6,15 @@
 
     <div class="row pt-3">
         <div class="col-12">
-            <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Create
             </button>
-            <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form action="#" method="post">
+                        <form action="{{route('university.create')}}" method="post">
                             @csrf
+                            @method('PUT')
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -25,7 +24,7 @@
                                 <div class="form-group">
                                     <label for="name">Name</label>
                                     <input type="text" name="name" id="name" class="form-control"
-                                        placeholder="Food name">
+                                        placeholder="University name">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -82,7 +81,7 @@
                                     <td>{{ $model->faculties->sum(fn($faculty) => $faculty->majors->sum(fn($major) => $major->groups->count())) }}</td>
                                     <td>{{ $model->faculties->sum(fn($faculty) => $faculty->majors->sum(fn($major) => $major->groups->sum(fn($group) => $group->students->count()))) }}</td>
                                     <td>
-                                        <form action="" method="POST">
+                                        <form action="{{route('university.delete', $model->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Delete</button>
